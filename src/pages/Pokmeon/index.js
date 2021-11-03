@@ -6,7 +6,7 @@ import { BASE_URL } from '../../api/PokesService';
 import PokeInfos from '../../components/PokeInfos/PokeInfos';
 import PokeTypes from '../../components/PokeTypes/PokeTypes';
 import Card from '../../components/UI/Card';
-import PokeWeaknesses from '../../PokeWeaknesses/PokeWeaknesses';
+import PokeWeaknesses from '../../components/PokeWeaknesses/PokeWeaknesses';
 
 const PokeDetails = () => {
   const { id } = useParams();
