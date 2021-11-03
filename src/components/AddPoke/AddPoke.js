@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 
 import Button from '../UI/Button';
@@ -16,7 +16,8 @@ const AddPoke = () => {
       dexnumber: '',
       name: '',
       description: '',
-      type: { first: '', second: '' },
+      firstType: '',
+      secondType: '',
       hp: '',
       attack: '',
       defense: '',
@@ -25,50 +26,26 @@ const AddPoke = () => {
       speedDefense: '',
       height: '',
       weight: '',
-      weaknesses: { first: '', second: '', third: '', fourth: '' },
+      firstWeaknesses: '',
+      secondWeaknesses: '',
+      thirdWeaknesses: '',
+      fourthWeaknesses: '',
       abilities: '',
-      evolution: { first: '', second: '', third: '' },
+      firstEvolution: '',
+      secondEvolution: '',
       image: '',
     },
-    async onSubmit(values) {
-      const body = {
-        dexnumber: values.dexnumber,
-        name: values.name,
-        description: values.description,
-        type: { first: values.type.first, second: values.type.second },
-        hp: values.hp,
-        attack: values.attack,
-        defense: values.defense,
-        speed: values.speed,
-        speedAttack: values.speedAttack,
-        speedDefense: values.speedDefense,
-        height: values.height,
-        weight: values.weight,
-        weaknesses: {
-          first: values.weaknesses.first,
-          second: values.weaknesses.second,
-          third: values.weaknesses.third,
-          fourth: values.weaknesses.fourth,
-        },
-        abilities: values.abilities,
-        evolution: {
-          first: values.evolution.first,
-          second: values.evolution.second,
-          third: values.evolution.third,
-        },
-        image: values.image,
-      };
+    onSubmit: (values) => {
+      console.log('Form data', values);
 
-      console.log(body);
-
-      const response = await axios
-        .post(`${BASE_URL}/pokemon`, body)
+      axios
+        .post(`${BASE_URL}/pokemon`, values)
+        .then((resp) => console.log(resp))
         .catch((err) => console.log(err));
-
-      console.log(response);
-      //history.push('/dashboard');
     },
   });
+
+  //console.log('Form values', formik.values);
 
   return (
     <div className="h-screen flex bg-gray-bg1">
@@ -83,7 +60,7 @@ const AddPoke = () => {
             type="text"
             name="dexnumber"
             id="dexnumber"
-            defaultValue={formik.values.dexnumber}
+            //defaultValue={formik.values.dexnumber}
             onChange={formik.handleChange}
           />
           <Input
@@ -91,32 +68,32 @@ const AddPoke = () => {
             type="text"
             name="name"
             id="name"
-            defaultValue={formik.values.name}
+            //defaultValue={formik.values.name}
             onChange={formik.handleChange}
           />
 
           <Input
-            label="description"
+            label="Description"
             type="text"
             name="description"
             id="description"
-            defaultValue={formik.values.description}
+            //defaultValue={formik.values.description}
             onChange={formik.handleChange}
           ></Input>
           <Input
-            label="Type 1"
+            label="First Type"
             type="text"
-            id="type.first"
-            name="type.first"
-            defaultValue={formik.values.type.first}
+            id="firstType"
+            name="firstType"
+            //defaultValue={formik.values.type.first}
             onChange={formik.handleChange}
           />
           <Input
-            label="Type 2"
+            label="Second Type"
             type="text"
-            id="type.second"
-            name="type.second"
-            defaultValue={formik.values.type.second}
+            id="secondType"
+            name="secondType"
+            //defaultValue={formik.values.type.second}
             onChange={formik.handleChange}
           />
           <Input
@@ -124,7 +101,7 @@ const AddPoke = () => {
             type="text"
             id="hp"
             name="hp"
-            defaultValue={formik.values.hp}
+            //defaultValue={formik.values.hp}
             onChange={formik.handleChange}
           />
 
@@ -133,7 +110,7 @@ const AddPoke = () => {
             type="text"
             id="attack"
             name="attack"
-            defaultValue={formik.values.attack}
+            //defaultValue={formik.values.attack}
             onChange={formik.handleChange}
           />
           <Input
@@ -141,7 +118,7 @@ const AddPoke = () => {
             type="text"
             id="defense"
             name="defense"
-            defaultValue={formik.values.defense}
+            //defaultValue={formik.values.defense}
             onChange={formik.handleChange}
           />
           <Input
@@ -149,7 +126,7 @@ const AddPoke = () => {
             type="text"
             id="speedAttack"
             name="speedAttack"
-            defaultValue={formik.values.speedAttack}
+            //defaultValue={formik.values.speedAttack}
             onChange={formik.handleChange}
           />
           <Input
@@ -157,7 +134,7 @@ const AddPoke = () => {
             type="text"
             id="speedDefense"
             name="speedDefense"
-            defaultValue={formik.values.speedDefense}
+            //defaultValue={formik.values.speedDefense}
             onChange={formik.handleChange}
           />
           <Input
@@ -165,7 +142,7 @@ const AddPoke = () => {
             type="text"
             id="speed"
             name="speed"
-            defaultValue={formik.values.speed}
+            //defaultValue={formik.values.speed}
             onChange={formik.handleChange}
           />
           <Input
@@ -173,7 +150,7 @@ const AddPoke = () => {
             type="text"
             id="height"
             name="height"
-            defaultValue={formik.values.height}
+            //defaultValue={formik.values.height}
             onChange={formik.handleChange}
           />
           <Input
@@ -181,7 +158,7 @@ const AddPoke = () => {
             type="text"
             id="weight"
             name="weight"
-            defaultValue={formik.values.weight}
+            //defaultValue={formik.values.weight}
             onChange={formik.handleChange}
           />
           <Input
@@ -189,64 +166,64 @@ const AddPoke = () => {
             type="text"
             id="abilities"
             name="abilities"
-            defaultValue={formik.values.abilities}
+            //defaultValue={formik.values.abilities}
             onChange={formik.handleChange}
           />
           <Input
             label="First Weaknesses"
             type="text"
-            id="weaknesses.first"
-            name="weaknesses.first"
-            defaultValue={formik.values.weaknesses.first}
+            id="firstWeaknesses"
+            name="firstWeaknesses"
+            //defaultValue={formik.values.weaknesses.first}
             onChange={formik.handleChange}
           />
           <Input
             label="Second Weaknesses"
             type="text"
-            id="weaknesses.second"
-            name="weaknesses.second"
-            defaultValue={formik.values.weaknesses.second}
+            id="secondWeaknesses"
+            name="secondWeaknesses"
+            //defaultValue={formik.values.weaknesses.second}
             onChange={formik.handleChange}
           />
           <Input
             label="Third Weaknesses"
             type="text"
-            id="weaknesses.third"
-            name="weaknesses.third"
-            defaultValue={formik.values.weaknesses.third}
+            id="thirdWeaknesses"
+            name="thirdWeaknesses"
+            //defaultValue={formik.values.weaknesses.third}
             onChange={formik.handleChange}
           />
 
           <Input
             label="Fourth Weaknesses"
             type="text"
-            id="weaknesses.fourth"
-            name="weaknesses.fourth"
-            defaultValue={formik.values.weaknesses.fourth}
+            id="fourthWeaknesses"
+            name="fourthWeaknesses"
+            //defaultValue={formik.values.weaknesses.fourth}
             onChange={formik.handleChange}
           />
           <Input
             label="1st Evolution"
             type="text"
-            id="evolution.first"
-            name="evolution.first"
-            defaultValue={formik.values.evolution.first}
+            id="firstEvolution"
+            name="firstEvolution"
+            //defaultValue={formik.values.evolution.first}
             onChange={formik.handleChange}
           />
           <Input
             label="2nd Evolution"
             type="text"
-            id="evolution.second"
-            name="evolution.second"
-            defaultValue={formik.values.evolution.second}
+            id="secondEvolution"
+            name="secondEvolution"
+            //defaultValue={formik.values.evolution.second}
             onChange={formik.handleChange}
           />
           <Input
             label="3rd Evolution"
             type="text"
-            id="evolution.third"
-            name="evolution.third"
-            defaultValue={formik.values.evolution.third}
+            id="thirdEvolution"
+            name="thirdEvolution"
+            //defaultValue={formik.values.evolution.third}
             onChange={formik.handleChange}
           />
           <Input
@@ -254,7 +231,7 @@ const AddPoke = () => {
             type="text"
             id="image"
             name="image"
-            defaultValue={formik.values.image}
+            //defaultValue={formik.values.image}
             onChange={formik.handleChange}
           />
           <Button

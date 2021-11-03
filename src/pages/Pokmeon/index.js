@@ -45,8 +45,13 @@ const PokeDetails = () => {
             weight={poke.weight}
             height={poke.height}
           />
-          <PokeTypes types={poke.type} />
-          <PokeWeaknesses weaknesses={poke.weaknesses} />
+          <PokeTypes firstType={poke.firstType} secondType={poke.secondType} />
+          <PokeWeaknesses
+            firstWeaknesses={poke.firstWeaknesses}
+            secondWeaknesses={poke.secondWeaknesses}
+            thirdWeakness={poke.thirdWeakness}
+            fourthWeaknesses={poke.fourthWeaknesses}
+          />
         </section>
       </div>
 
