@@ -36,16 +36,16 @@ const AddPoke = () => {
       image: '',
     },
     onSubmit: (values) => {
-      console.log('Form data', values);
+      //console.log('Form data', values);
 
       axios
         .post(`${BASE_URL}/pokemon`, values)
         .then((resp) => console.log(resp))
         .catch((err) => console.log(err));
+
+      history.push('/dashboard');
     },
   });
-
-  //console.log('Form values', formik.values);
 
   return (
     <div className="h-screen flex bg-gray-bg1">

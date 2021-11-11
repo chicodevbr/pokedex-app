@@ -1,0 +1,34 @@
+.grass {
+  background-color: #9bcc50;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 5px;
+}
+
+.poison {
+  background-color: #b97fc9;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 5px;
+}
+
+.fire {
+  background-color: #fd7d24;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 5px;
+}
+
+.psychic {
+  background-color: #f366b9;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 5px;
+}
+
+.ice {
+  background-color: #51c4e7;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 5px;
+}

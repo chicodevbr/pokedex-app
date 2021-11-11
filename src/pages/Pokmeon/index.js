@@ -7,6 +7,7 @@ import PokeInfos from '../../components/PokeInfos/PokeInfos';
 import PokeTypes from '../../components/PokeTypes/PokeTypes';
 import Card from '../../components/UI/Card';
 import PokeWeaknesses from '../../components/PokeWeaknesses/PokeWeaknesses';
+import Chart from '../../components/Chart/Chart';
 
 const PokeDetails = () => {
   const { id } = useParams();
@@ -55,12 +56,12 @@ const PokeDetails = () => {
         </section>
       </div>
 
-      <ul>
-        <li>HP: {poke.hp}</li>
-        <li>Attack: {poke.attack}</li>
-        <li>Defense: {poke.defense}</li>
-        <li>Speed: {poke.speed}</li>
-      </ul>
+      <Chart
+        hp={poke.hp}
+        attack={poke.attack}
+        defense={poke.defense}
+        speed={poke.speed}
+      />
     </div>
   );
 };
