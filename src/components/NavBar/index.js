@@ -1,47 +1,67 @@
-import React, { useState } from 'react';
-import Navbar from '@material-tailwind/react/Navbar';
-import NavbarContainer from '@material-tailwind/react/NavbarContainer';
-import NavbarWrapper from '@material-tailwind/react/NavbarWrapper';
-import NavbarBrand from '@material-tailwind/react/NavbarBrand';
-import NavbarToggler from '@material-tailwind/react/NavbarToggler';
-import NavbarCollapse from '@material-tailwind/react/NavbarCollapse';
-import Nav from '@material-tailwind/react/Nav';
-
-import NavLink from '@material-tailwind/react/NavLink';
+import React from 'react';
 import Icon from '@material-tailwind/react/Icon';
 
-export default function NavBar() {
-  const [openMenu, setOpenMenu] = useState(false);
-
+export default function NavBar({ fixed }) {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
-    <Navbar color="blue">
-      <NavbarContainer>
-        <NavbarWrapper className="flex row-span-1 justify-between">
-          <NavbarBrand>POKEDEX</NavbarBrand>
-          <NavbarToggler
-            color="white"
-            onClick={() => setOpenMenu(!openMenu)}
-            ripple="light"
-          />
-        </NavbarWrapper>
+    <>
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-800 mb-3">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a
+              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+              href="/"
+            >
+              PokeDex
+            </a>
+            <button
+              className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+            >
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
+          <div
+            className={
+              'lg:flex flex-grow items-center' +
+              (navbarOpen ? ' flex' : ' hidden')
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <li className="nav-item">
+                <a
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  href="/"
+                >
+                  <Icon name="language" size="xl" />
 
-        <NavbarCollapse open={openMenu}>
-          <Nav>
-            <NavLink href="/" active="light" ripple="light">
-              <Icon name="language" size="xl" />
-              Discover
-            </NavLink>
-            <NavLink href="login" ripple="light">
-              <Icon name="account_circle" size="xl" />
-              Login
-            </NavLink>
-            <NavLink href="dashboard" ripple="light">
-              <Icon name="settings" size="xl" />
-              Dashboard
-            </NavLink>
-          </Nav>
-        </NavbarCollapse>
-      </NavbarContainer>
-    </Navbar>
+                  <span className="ml-2">Home</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  href="login"
+                >
+                  <Icon name="account_circle" size="xl" />
+                  <span className="ml-2">Login</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  href="dashboard"
+                >
+                  <Icon name="settings" size="xl" />
+                  <span className="ml-2">Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }
