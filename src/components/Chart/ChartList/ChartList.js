@@ -4,12 +4,10 @@ const ChartList = (props) => {
   return (
     <div className="classList">
       <ul>
-        <li>{props.children}</li>
-        <li>{props.children}</li>
-        <li>{props.children}</li>
-        <li>{props.children}</li>
-        <li>{props.children}</li>
-        <li>{props.children}</li>
+        <li>HP {props.hp}</li>
+        <li>ATTACK {props.attack}</li>
+        <li>DEFENSE {props.defense}</li>
+        <li>SPEED {props.speed}</li>
       </ul>
     </div>
   );
