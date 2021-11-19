@@ -19,7 +19,7 @@ export default function NavBar() {
         <NavbarWrapper>
           <NavbarBrand>Pokedex</NavbarBrand>
           <NavbarToggler
-            color="black"
+            color="white"
             onClick={() => setOpenNavbar(!openNavbar)}
             ripple="light"
           />

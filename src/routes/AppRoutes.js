@@ -10,17 +10,20 @@ import NavBar from '../components/NavBar';
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
+    <>
       <NavBar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/pokemon/:id" component={PokemonDetails} />
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/dashboard" component={Dashborad} />
-        <Route path="/add" component={AddPoke} />
-      </Switch>
-    </BrowserRouter>
+
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/pokemon/:id" component={PokemonDetails} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/dashboard" component={Dashborad} />
+          <Route path="/add" component={AddPoke} />
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
