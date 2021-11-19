@@ -11,30 +11,33 @@ import NavLink from '@material-tailwind/react/NavLink';
 import Icon from '@material-tailwind/react/Icon';
 
 export default function NavBar() {
-  const [openNavbar, setOpenNavbar] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
-    <Navbar color="blue" navbar>
-      <NavbarContainer className={`flex row-span-1`}>
+    <Navbar color="blue">
+      <NavbarContainer>
         <NavbarWrapper>
-          <NavbarBrand>Pokedex</NavbarBrand>
+          <NavbarBrand>POKEDEX</NavbarBrand>
           <NavbarToggler
             color="white"
-            onClick={() => setOpenNavbar(!openNavbar)}
+            onClick={() => setOpenMenu(!openMenu)}
             ripple="light"
           />
         </NavbarWrapper>
 
-        <NavbarCollapse open={openNavbar}>
-          <Nav className={`row-auto`}>
-            <NavLink active="light" href="/" ripple="light">
+        <NavbarCollapse open={openMenu}>
+          <Nav>
+            <NavLink href="/" active="light" ripple="light">
               <Icon name="language" size="xl" />
+              Discover
             </NavLink>
             <NavLink href="login" ripple="light">
               <Icon name="account_circle" size="xl" />
+              Login
             </NavLink>
             <NavLink href="dashboard" ripple="light">
               <Icon name="settings" size="xl" />
+              Dashboard
             </NavLink>
           </Nav>
         </NavbarCollapse>
