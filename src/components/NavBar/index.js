@@ -43,7 +43,7 @@ export default function NavBar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/pokemon/login"
+                  href="/login"
                 >
                   <Icon name="account_circle" size="xl" />
                   <span className="ml-2">Login</span>
@@ -52,7 +52,7 @@ export default function NavBar({ fixed }) {
               <li className="nav-item">
                 <a
                   className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="/pokemon/dashboard"
+                  href="/dashboard"
                 >
                   <Icon name="settings" size="xl" />
                   <span className="ml-2">Dashboard</span>
