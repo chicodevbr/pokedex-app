@@ -32,7 +32,7 @@ const Dashborad = () => {
       <div className={`flex flex-col items-center m-14 justify-center`}>
         <Button
           className="bg-purple-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-60 "
-          onClick={() => history.replace('/add')}
+          onClick={() => history.replace('/pokemon/add')}
         >
           Add Pokemon
         </Button>
