@@ -16,7 +16,7 @@ export default function NavBar() {
   return (
     <Navbar color="blue">
       <NavbarContainer>
-        <NavbarWrapper>
+        <NavbarWrapper className="flex row-span-1 justify-between">
           <NavbarBrand>POKEDEX</NavbarBrand>
           <NavbarToggler
             color="white"
