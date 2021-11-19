@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import AddPoke from '../components/AddPoke/AddPoke';
 import Dashborad from '../components/Dashboard/Dashborad';
 import Login from '../components/Auth/Login';
@@ -21,6 +21,7 @@ const AppRoutes = () => {
           <Route path="/signup" component={SignUp} />
           <Route path="/dashboard" component={Dashborad} />
           <Route path="/add" component={AddPoke} />
+          <Redirect to="/" />
         </Switch>
       </BrowserRouter>
     </>
