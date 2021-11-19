@@ -1,23 +1,44 @@
-const NavBar = (props) => {
-  return (
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-teal-500 mb-3">
-      <div className="bg-purple-700 container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-          <a
-            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-            href="/"
-          >
-            {props.children}
-          </a>
-          <ul>
-            <li>{props.login}</li>
-            <li>{props.dashboard}</li>
-            <li>{props.logout}</li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-};
+import React, { useState } from 'react';
+import Navbar from '@material-tailwind/react/Navbar';
+import NavbarContainer from '@material-tailwind/react/NavbarContainer';
+import NavbarWrapper from '@material-tailwind/react/NavbarWrapper';
+import NavbarBrand from '@material-tailwind/react/NavbarBrand';
+import NavbarToggler from '@material-tailwind/react/NavbarToggler';
+import NavbarCollapse from '@material-tailwind/react/NavbarCollapse';
+import Nav from '@material-tailwind/react/Nav';
 
-export default NavBar;
+import NavLink from '@material-tailwind/react/NavLink';
+import Icon from '@material-tailwind/react/Icon';
+
+export default function NavBar() {
+  const [openNavbar, setOpenNavbar] = useState(false);
+
+  return (
+    <Navbar color="blue" navbar>
+      <NavbarContainer>
+        <NavbarWrapper>
+          <NavbarBrand>Pokedex</NavbarBrand>
+          <NavbarToggler
+            color="black"
+            onClick={() => setOpenNavbar(!openNavbar)}
+            ripple="light"
+          />
+        </NavbarWrapper>
+
+        <NavbarCollapse open={openNavbar}>
+          <Nav>
+            <NavLink active="light" href="/" ripple="light">
+              <Icon name="language" size="xl" />
+            </NavLink>
+            <NavLink href="login" ripple="light">
+              <Icon name="account_circle" size="xl" />
+            </NavLink>
+            <NavLink href="dashboard" ripple="light">
+              <Icon name="settings" size="xl" />
+            </NavLink>
+          </Nav>
+        </NavbarCollapse>
+      </NavbarContainer>
+    </Navbar>
+  );
+}
