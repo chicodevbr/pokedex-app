@@ -16,11 +16,11 @@ const AppRoutes = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/pokemon/:id" component={PokemonDetails} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
           <Route path="/dashboard" component={Dashborad} />
           <Route path="/add" component={AddPoke} />
+          <Route path="/:id" component={PokemonDetails} />
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>
